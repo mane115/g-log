@@ -34,9 +34,9 @@ a log class
 
     return a midware function
 
-- ##### getLogger
+  - ##### getLogger
 
-  category `String` which category logger is
+    category `String` which category logger is
 
 - ### usage
 
