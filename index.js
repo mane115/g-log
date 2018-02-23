@@ -7,6 +7,7 @@ const saveMkdir = dir => {
         return null;
     }
 };
+
 class Log {
     constructor(
         {
@@ -136,4 +137,5 @@ class Log {
         return this.logger[category];
     }
 }
-module.exporta = Log;
+
+module.exports = Log;
