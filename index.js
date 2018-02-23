@@ -13,12 +13,11 @@ class Log {
             isErrorLog = true,
             isWarnLog = true,
             isStdout = true,
+            isPrd = false,
             defaultLogType = 'dateFile',
             defaultPattern = '-yyyy-MM-dd.log',
-            defaultLogLevel = '',
             alwaysIncludePattern = true,
             logCategories = [],
-            env = 'development',
             logDir = 'logs',
         }
     ) {
@@ -26,7 +25,7 @@ class Log {
         if (logDir) {
             saveMkdir(logDir);
         }
-        let logLevel = env === 'development' ? 'all' : 'info';
+        let logLevel = isPrd ? 'info' : 'all';
         let config = {
             appenders: {
                 other: {
@@ -105,7 +104,7 @@ class Log {
         }
     }
 
-    getLogMidware({type = 'koa2', category}) {
+    getLogMidware(category, type = 'koa2') {
         let mid;
         let self = this;
         let logger = self.logger[category];
@@ -138,13 +137,3 @@ class Log {
     }
 }
 module.exporta = Log;
-
-let log = new Log({
-    logCategories: ['test', 'g']
-});
-
-// let logger = log.getLogger('test');
-// let logger = log.logger.test;
-let logger = log4js.getLogger('test');
-logger.info('test32131');
-logger.error('test32131');
