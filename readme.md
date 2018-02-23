@@ -48,7 +48,7 @@ a log class
     });
     const logMidware = log.getLogMidware('user') //koa
     app.use(logMidware);
-    
+
     // business
     const logger = log.getLogger('user');
     logger.info('log here'); // [2018-02-23T16:47:20.748] [INFO] user - log here
@@ -58,3 +58,7 @@ a log class
       ctx.logger.info('log here')// [2018-02-23T16:47:20.748] [INFO] user - log here
     })
   ```
+
+  - link
+
+    [log4js doc](https://log4js-node.github.io/log4js-node/index.html)
